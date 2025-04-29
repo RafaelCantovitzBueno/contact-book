@@ -24,5 +24,9 @@ public class ContactServices {
 			Person person = new Person(name, lastName, number, description);
 			listContact.addContact(person);
 		}
+		
+		public void viewContact() {
+			listContact.showContacts();
+		}
 
 }

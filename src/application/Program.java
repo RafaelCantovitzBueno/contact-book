@@ -29,6 +29,8 @@ public class Program {
 				contactServices.addContact();
 				break;
 			case 2:
+				System.out.println("--- Contacts ---");
+				contactServices.viewContact();
 				break;
 			case 3:
 				break;
