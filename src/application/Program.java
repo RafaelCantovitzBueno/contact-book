@@ -2,12 +2,16 @@ package application;
 
 import java.util.Scanner;
 
+import services.ContactServices;
+
 public class Program {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 
 		int option;
+		
+		ContactServices contactServices = new ContactServices();
 
 		do {
 			System.out.println("--- Contact Book ---");
@@ -22,20 +26,22 @@ public class Program {
 			sc.nextLine();
 			switch (option) {
 			case 1:
+				contactServices.addContact();
 				break;
 			case 2:
 				break;
 			case 3:
-
 				break;
 			case 4:
-
 				break;
 			case 5:
-
 				break;
 			case 0:
+				System.out.println("Thanks to use! Exiting...");
+				break;
 			default:
+				System.out.println("Prease input a valid number!");
+				break;
 			}
 		} while (option != 0);
 

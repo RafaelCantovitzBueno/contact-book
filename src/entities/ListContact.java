@@ -3,7 +3,7 @@ package entities;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListPerson {
+public class ListContact {
 
 	List<Person> list = new ArrayList<>();
 
