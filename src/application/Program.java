@@ -1,5 +1,6 @@
 package application;
 
+import java.util.List;
 import java.util.Scanner;
 
 import entities.Person;
@@ -13,15 +14,14 @@ public class Program {
 		int option;
 		
 		ContactServices contactServices = new ContactServices();
-		Person found = new Person();
 
 		do {
 			System.out.println("--- Contact Book ---");
 			System.out.println("1 - Add a new contact");
 			System.out.println("2 - View all contacts");
 			System.out.println("3 - Search a contact");
-			System.out.println("4 - Edit a registered contact");
-			System.out.println("5 - Remove a contact");
+			System.out.println("4 - Edit a registered contact (WIP)");
+			System.out.println("5 - Remove a contact (WIP)");
 			System.out.println("0 - Exit");
 			System.out.print("Choose an option: ");
 			option = sc.nextInt();
@@ -46,12 +46,15 @@ public class Program {
 				if(option == 1) {
 					System.out.println("Enter the name to search: ");
 					String name = sc.nextLine();
-					found = contactServices.searchContactByName(name);
-					if(found == null) {
+					List<Person> found = contactServices.searchContactByName(name);
+					if(found.isEmpty()) {
 						System.out.println("No contact with the name '" + name + "' was found.");
 					}
 					else {
-						System.out.println(found);
+						System.out.println("--- Contacts ---");
+						for(Person p : found) {
+							System.out.println(p);
+						}
 					}
 				}
 				if(option == 2) {

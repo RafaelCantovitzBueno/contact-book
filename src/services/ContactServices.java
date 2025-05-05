@@ -1,5 +1,7 @@
 package services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import entities.ListContact;
@@ -32,13 +34,13 @@ public class ContactServices {
 			listContact.showContacts();
 		}
 		
-		public Person searchContactByName(String name) {
+		public List<Person> searchContactByName(String name) {
+			List<Person> result = new ArrayList<>();
 			for(Person p : listContact.getContacts()) {
 				if(p.getName().equalsIgnoreCase(name)) {
-					return p;
+					result.add(p);
 				}
 			}
-			return null;
+			return result;
 		}
-
 }
