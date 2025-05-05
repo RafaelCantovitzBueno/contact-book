@@ -10,6 +10,8 @@ public class ContactServices {
 		int option;
 		
 		ListContact listContact = new ListContact();
+		Person p = new Person();
+		int listSize = listContact.sizeContact();
 		
 		public void addContact() {
 			System.out.println("--- Add a Person ---");
@@ -21,12 +23,22 @@ public class ContactServices {
 			String number = sc.nextLine();
 			System.out.print("About: ");
 			String description = sc.nextLine();
-			Person person = new Person(name, lastName, number, description);
-			listContact.addContact(person);
+			p = new Person(name, lastName, number, description);
+			listContact.addContact(p);
+			listSize+=1;
 		}
 		
 		public void viewContact() {
 			listContact.showContacts();
+		}
+		
+		public Person searchContactByName(String name) {
+			for(Person p : listContact.getContacts()) {
+				if(p.getName().equalsIgnoreCase(name)) {
+					return p;
+				}
+			}
+			return null;
 		}
 
 }

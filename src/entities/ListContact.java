@@ -20,5 +20,13 @@ public class ListContact {
 			System.out.println(p);
 		}
 	}
+	
+	public int sizeContact() {
+		return list.size();
+	}
+	
+	public Person removeContact(int index) {
+		return list.remove(index);
+	}
 
 }
