@@ -43,4 +43,14 @@ public class ContactServices {
 			}
 			return result;
 		}
+		
+		public List<Person> searchContactByLastName(String lastName){
+			List<Person> result = new ArrayList<>();
+			for(Person p : listContact.getContacts()) {
+				if(p.getLastName().equalsIgnoreCase(lastName)) {
+					result.add(p);
+				}
+			}
+			return result;
+		}
 }

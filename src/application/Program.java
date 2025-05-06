@@ -38,7 +38,7 @@ public class Program {
 				System.out.println("--- Search a Contact ---");
 				System.out.println("Search contact by: ");
 				System.out.println("1 - Name");
-				System.out.println("2 - Last Name (WIP)");
+				System.out.println("2 - Last Name");
 				System.out.println("3 - Full name (WIP)");
 				System.out.println("Enter your choice: ");
 				option = sc.nextInt();
@@ -58,7 +58,18 @@ public class Program {
 					}
 				}
 				if(option == 2) {
-					System.out.println("Sorry, this option is currently unavailable.");
+					System.out.println("Enter the last name to search: ");
+					String lastName = sc.nextLine();
+					List<Person> found = contactServices.searchContactByLastName(lastName);
+					if(found.isEmpty()) {
+						System.out.println("No contact with the last name '" + lastName + "' was found.");
+					}
+					else {
+						System.out.println("--- Contacts ---");
+						for(Person p : found) {
+							System.out.println(p);
+						}
+					}
 				}
 				if(option == 3) {
 					System.out.println("Sorry, this option is currently unavailable.");
